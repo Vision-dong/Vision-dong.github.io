@@ -1,0 +1,420 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta property="og:type" content="website">
+<meta property="og:title" content="Vision的博客">
+<meta property="og:url" content="http://vision-dong.github.io/index.html">
+<meta property="og:site_name" content="Vision的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Vision">
+<meta name="twitter:card" content="summary"><title>Vision的博客</title><link ref="canonical" href="http://vision-dong.github.io/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Vision的博客</div><div class="header-banner-info__subtitle">Vision的个人小站</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/03/JAVA%E7%9A%84IO%E6%A1%86%E6%9E%B6/">JAVA的IO框架</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="流的概念"   >
+          <a href="#流的概念" class="heading-link"><i class="fas fa-link"></i></a><a href="#流的概念" class="headerlink" title="流的概念"></a>流的概念</h1>
+      <p><strong>概念</strong>：内存与存储设备之间传输数据的通道。</p>
+<p><img src="/posts_data/JAVA%E7%9A%84IO%E6%A1%86%E6%9E%B6/%E5%9B%BE%E7%89%871.png" alt="图片"></p>
+
+        <h1 id="流的分类"   >
+          <a href="#流的分类" class="heading-link"><i class="fas fa-link"></i></a><a href="#流的分类" class="headerlink" title="流的分类"></a>流的分类</h1>
+      
+        <h2 id="按方向"   >
+          <a href="#按方向" class="heading-link"><i class="fas fa-link"></i></a><a href="#按方向" class="headerlink" title="按方向"></a>按方向</h2>
+      <p><strong>输入流</strong>：将&lt;存储设备&gt;中的内容读入到&lt;内存&gt;中。</p>
+<p><strong>输出流</strong>：将&lt;内存&gt;中的内容写入到&lt;存储设备&gt;中。</p>
+<p><img src="/posts_data/JAVA%E7%9A%84IO%E6%A1%86%E6%9E%B6/%E5%9B%BE%E7%89%872.png" alt="图片"></p>
+
+        <h2 id="按单位"   >
+          <a href="#按单位" class="heading-link"><i class="fas fa-link"></i></a><a href="#按单位" class="headerlink" title="按单位"></a>按单位</h2>
+      <p><strong>字节流</strong>：以字节为单位，可以读写所有数据。</p>
+<p><strong>字符流</strong>：以字符为单位，只能读写文本数据。</p>
+
+        <h2 id="按功能"   >
+          <a href="#按功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#按功能" class="headerlink" title="按功能"></a><strong>按功能</strong></h2>
+      <p><strong>字节流</strong>：具有实际传输数据的读写功能。</p>
+<p><strong>过滤流</strong>：在节点流的基础之上增强功能。</p>
+
+        <h1 id="字节流"   >
+          <a href="#字节流" class="heading-link"><i class="fas fa-link"></i></a><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h1>
+      <p><img src="/posts_data/JAVA%E7%9A%84IO%E6%A1%86%E6%9E%B6/%E5%9B%BE%E7%89%873.png" alt="图片"></p>
+
+        <h2 id="字节流的父类（抽象类）"   >
+          <a href="#字节流的父类（抽象类）" class="heading-link"><i class="fas fa-link"></i></a><a href="#字节流的父类（抽象类）" class="headerlink" title="字节流的父类（抽象类）"></a>字节流的父类（抽象类）</h2>
+      
+        <h3 id="InputStream"   >
+          <a href="#InputStream" class="heading-link"><i class="fas fa-link"></i></a><a href="#InputStream" class="headerlink" title="InputStream"></a>InputStream</h3>
+      <p>字节输入流</p>
+<p><code>public int read()&#123;&#125;</code></p>
+<p><code>public int read(byte[] b)&#123;&#125;</code></p>
+<p><code>public int read(byte[] b,int off,int len)&#123;&#125;</code></p>
+
+        <h3 id="OutputStream"   >
+          <a href="#OutputStream" class="heading-link"><i class="fas fa-link"></i></a><a href="#OutputStream" class="headerlink" title="OutputStream"></a>OutputStream</h3>
+      <p>字节输出流</p>
+<p><code>public void write(int n)&#123;&#125;</code></p>
+<p><code>public void write(byte[] b)&#123;&#125;</code></p>
+<p><code>public void write(byte[] b,int off,int len)&#123;&#125;</code></p>
+<p>未完，先写到这里。</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/02/%E5%A7%86%E7%88%B7%E7%9A%84Lose-yourself%E7%9A%84%E7%8E%B0%E5%9C%BA%E7%89%88/">姆爷的Lose yourself的现场版</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>这个现场真的帅阿</p>
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-XXpAqaCkdvbbGqSa" src="https://player.bilibili.com/player.html?bvid=BV1tw411f7LC&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-XXpAqaCkdvbbGqSa").style.height=document.getElementById("mmedia-XXpAqaCkdvbbGqSa").scrollWidth*0.76+"px";
+    window.onresize = function(){
+      document.getElementById("mmedia-XXpAqaCkdvbbGqSa").style.height=document.getElementById("mmedia-XXpAqaCkdvbbGqSa").scrollWidth*0.76+"px";
+    }; </script>
+
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/%E5%A6%82%E4%BD%95%E7%94%A8%E8%84%9A%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E7%9A%84Mirai%E6%9C%BA%E5%99%A8%E4%BA%BA/">如何用脚搭建一个开源的Mirai机器人</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="获取Mirai"   >
+          <a href="#获取Mirai" class="heading-link"><i class="fas fa-link"></i></a><a href="#获取Mirai" class="headerlink" title="获取Mirai"></a>获取Mirai</h1>
+      <p>那么，在开始之前，我们首先需要获取Mirai是吧，原生态的Mirai用起来比较麻烦，这时候我们可以选择去找一个更加 <em>便捷</em> 的Mirai启动器，这里我推荐的是用MCL（mirai-console-loader）<br><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/iTXTech/mirai-console-loader" >下载地址</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br><img src="/posts_data/%E5%A6%82%E4%BD%95%E7%94%A8%E8%84%9A%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E7%9A%84Mirai%E6%9C%BA%E5%99%A8%E4%BA%BA/%E5%9B%BE%E7%89%871.png" alt="图片"><br>点进去之后再点那个后缀名为zip的就可以下载了，如果你还不会<br><em><strong>就憋捣鼓这些东西了</strong></em></p>
+
+        <h1 id="启动Mirai"   >
+          <a href="#启动Mirai" class="heading-link"><i class="fas fa-link"></i></a><a href="#启动Mirai" class="headerlink" title="启动Mirai"></a>启动Mirai</h1>
+      <p>下载完成之后进入根目录，找到一个叫mcl.cmd的文件，双击打开它，然后等他下载完毕Mirai的文件就可以了。<br><font size="5"><font color="#660000"><em><strong>如果你打不开，你要去下载一个jAVA（至少是JDK11+的版本）</strong></em></font><br /></font><br /><br><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/" >下载地址</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br><img src="/posts_data/%E5%A6%82%E4%BD%95%E7%94%A8%E8%84%9A%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E7%9A%84Mirai%E6%9C%BA%E5%99%A8%E4%BA%BA/%E5%9B%BE%E7%89%872.png" alt="图片"><br>下载需要一个账号，我觉得你没问题吧））</p>
+
+        <h1 id="登录账号"   >
+          <a href="#登录账号" class="heading-link"><i class="fas fa-link"></i></a><a href="#登录账号" class="headerlink" title="登录账号"></a>登录账号</h1>
+      <p>进入后，可以用 <code>login QQ账号 QQ密码</code> 来登陆。<br>若是跳出验证，就按照他的来，如果出现滑动验证 <em>就按照他的指示来</em><br>如果你还不会，可以加群 <strong>383556454</strong> 获取滑动验证助手来帮助你<br>登陆成功后，若想要实现自动登陆，可以用：<br><code>autoLogin add QQ账号 QQ密码</code><br>按 <code>help</code> 显示命令大全（包块你下的插件的命令）</p>
+
+        <h1 id="获取插件"   >
+          <a href="#获取插件" class="heading-link"><i class="fas fa-link"></i></a><a href="#获取插件" class="headerlink" title="获取插件"></a>获取插件</h1>
+      <p>当我们用脚搭建好Mirai的运行环境后，就是获取插件了，下面是网址<br><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://mirai.mamoe.net/" >Mirai社区</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>如果你不会开发的话，直接用现成的即可，插件的教程你们可以看插件开发者的叙述。</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/">丛雨の使用帮助</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="有关丛雨的骰娘功能"   >
+          <a href="#有关丛雨的骰娘功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#有关丛雨的骰娘功能" class="headerlink" title="有关丛雨的骰娘功能"></a>有关丛雨的骰娘功能</h1>
+      <p>常用指令列表:<br>.st 属性设置<br>.ra|.rc 属性检测<br>.rb 奖励骰|.rp惩罚骰<br>.cr coc7规则书查询<br>.dr dnd5e信息查询<br>.ti 随机获取发疯情况<br>.li 发疯后总结<br>.sc 理智检测<br>.rh 暗骰<br>.set 设置默认骰<br>.coc 随机coc7角色属性<br>.dnd 随机dnd5e角色属性<br>.r 随机数生成<br>.rd 默认骰数值生成<br>.ww 骰池功能<br>.kkp 随机图片速览(测试)<br>.atk 先攻指令系列，详情请看文档<br>.botoff | .boton 启用骰子开关<br>更多的指令详情请查看:<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://keith404.gitee.io/mirai-rulateday-dice/#/instruction" >https://keith404.gitee.io/mirai-rulateday-dice/#/instruction</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h1 id="散装功能"   >
+          <a href="#散装功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#散装功能" class="headerlink" title="散装功能"></a>散装功能</h1>
+      <p><img src="/posts_data/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/%E5%B8%AE%E5%8A%A91.png" alt="图片"><br><img src="/posts_data/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/%E5%B8%AE%E5%8A%A92.png" alt="图片"><br><img src="/posts_data/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/%E5%B8%AE%E5%8A%A93.png" alt="图片"><br>生成5k 第一行内容<br>第二行内容</p>
+
+        <h1 id="折磨群友的功能"   >
+          <a href="#折磨群友的功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#折磨群友的功能" class="headerlink" title="折磨群友的功能"></a>折磨群友的功能</h1>
+      <p>管理员发送：<em>请丛雨大人降下天罚吧！</em>  将会随机抽取一名倒霉蛋禁言<br>allinall <em>假消息</em> 生成假消息<br>发送 <em>赌</em> 玩俄罗斯轮盘<br>或者可以 <em>戳一戳</em> 丛雨<br>或者跟丛雨 <em><strong>对骂</strong></em></p>
+
+        <h1 id="动图功能"   >
+          <a href="#动图功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#动图功能" class="headerlink" title="动图功能"></a>动图功能</h1>
+      <p>摸+@<br>踢+@<br>贴+@<br>锤+@<br>抱+@<br>艹+@</p>
+
+        <h1 id="乱七八糟的系统"   >
+          <a href="#乱七八糟的系统" class="heading-link"><i class="fas fa-link"></i></a><a href="#乱七八糟的系统" class="headerlink" title="乱七八糟的系统"></a>乱七八糟的系统</h1>
+      <p>目前已实现的功能列表：<br>|赌博|打劫|猜数字|签到|注册|转账|查询|点歌|<br>发送#功能 帮助，查询对应功能帮助</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+
+        <h2 id="Quick-Start"   >
+          <a href="#Quick-Start" class="heading-link"><i class="fas fa-link"></i></a><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+      
+        <h3 id="Create-a-new-post"   >
+          <a href="#Create-a-new-post" class="heading-link"><i class="fas fa-link"></i></a><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></div></figure>
+
+<p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h3 id="Run-server"   >
+          <a href="#Run-server" class="heading-link"><i class="fas fa-link"></i></a><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></div></figure>
+
+<p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h3 id="Generate-static-files"   >
+          <a href="#Generate-static-files" class="heading-link"><i class="fas fa-link"></i></a><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></div></figure>
+
+<p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h3 id="Deploy-to-remote-sites"   >
+          <a href="#Deploy-to-remote-sites" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3>
+      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></div></figure>
+
+<p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/author_avatar.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">我永远也没有全部成功，我只有部分成功。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/Vision-dong" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://qm.qq.com/cgi-bin/qm/qr?k=oM7Sm57MAA9DVupb67IFRsOsLqJMsF5B&amp;noverify=0" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">2</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">3</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Vision</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.1.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="1" count="300" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
