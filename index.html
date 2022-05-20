@@ -39,19 +39,31 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
       
         <h2 id="按方向"   >
           <a href="#按方向" class="heading-link"><i class="fas fa-link"></i></a><a href="#按方向" class="headerlink" title="按方向"></a>按方向</h2>
-      <p><strong>输入流</strong>：将&lt;存储设备&gt;中的内容读入到&lt;内存&gt;中。</p>
-<p><strong>输出流</strong>：将&lt;内存&gt;中的内容写入到&lt;存储设备&gt;中。</p>
+      <ul>
+<li><p><strong>输入流</strong>：将&lt;存储设备&gt;中的内容读入到&lt;内存&gt;中。</p>
+</li>
+<li><p><strong>输出流</strong>：将&lt;内存&gt;中的内容写入到&lt;存储设备&gt;中。</p>
+</li>
+</ul>
 <p><img src="/posts_data/JAVA%E7%9A%84IO%E6%A1%86%E6%9E%B6/%E5%9B%BE%E7%89%872.png" alt="图片"></p>
 
         <h2 id="按单位"   >
           <a href="#按单位" class="heading-link"><i class="fas fa-link"></i></a><a href="#按单位" class="headerlink" title="按单位"></a>按单位</h2>
-      <p><strong>字节流</strong>：以字节为单位，可以读写所有数据。</p>
-<p><strong>字符流</strong>：以字符为单位，只能读写文本数据。</p>
+      <ul>
+<li><p><strong>字节流</strong>：以字节为单位，可以读写所有数据。</p>
+</li>
+<li><p><strong>字符流</strong>：以字符为单位，只能读写文本数据。</p>
+</li>
+</ul>
 
         <h2 id="按功能"   >
           <a href="#按功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#按功能" class="headerlink" title="按功能"></a><strong>按功能</strong></h2>
-      <p><strong>节点流</strong>：具有实际传输数据的读写功能。</p>
-<p><strong>过滤流</strong>：在节点流的基础之上增强功能。</p>
+      <ul>
+<li><p><strong>节点流</strong>：具有实际传输数据的读写功能。</p>
+</li>
+<li><p><strong>过滤流</strong>：在节点流的基础之上增强功能。</p>
+</li>
+</ul>
 
         <h1 id="字节流"   >
           <a href="#字节流" class="heading-link"><i class="fas fa-link"></i></a><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h1>
@@ -62,14 +74,18 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
       
         <h3 id="InputStream"   >
           <a href="#InputStream" class="heading-link"><i class="fas fa-link"></i></a><a href="#InputStream" class="headerlink" title="InputStream"></a>InputStream</h3>
-      <p>字节输入流</p>
+      <ul>
+<li>字节输入流</li>
+</ul>
 <p><code>public int read()&#123;&#125;</code></p>
 <p><code>public int read(byte[] b)&#123;&#125;</code></p>
 <p><code>public int read(byte[] b,int off,int len)&#123;&#125;</code></p>
 
         <h3 id="OutputStream"   >
           <a href="#OutputStream" class="heading-link"><i class="fas fa-link"></i></a><a href="#OutputStream" class="headerlink" title="OutputStream"></a>OutputStream</h3>
-      <p>字节输出流</p>
+      <ul>
+<li>字节输出流</li>
+</ul>
 <p><code>public void write(int n)&#123;&#125;</code></p>
 <p><code>public void write(byte[] b)&#123;&#125;</code></p>
 <p><code>public void write(byte[] b,int off,int len)&#123;&#125;</code></p>
@@ -83,8 +99,12 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
         <h2 id="字节缓冲流"   >
           <a href="#字节缓冲流" class="heading-link"><i class="fas fa-link"></i></a><a href="#字节缓冲流" class="headerlink" title="字节缓冲流"></a>字节缓冲流</h2>
       <p><strong>缓冲流</strong>：BufferedInputStream&#x2F;BufferedOutputStream</p>
-<p>提高IO效率，减少访问磁盘的次数；</p>
-<p>数据存储在缓冲区中。flush可以将缓存区的内容写入文件，也可以直接close。</p>
+<ul>
+<li><p>提高IO效率，减少访问磁盘的次数；</p>
+</li>
+<li><p>数据存储在缓冲区中。flush可以将缓存区的内容写入文件，也可以直接close。</p>
+</li>
+</ul>
 <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用字节缓冲流读取</span></span><br><span class="line"><span class="comment"> * BufferedInputStream</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo4</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">//使用该输入流每次会从硬盘读入</span></span><br><span class="line">        FileInputStream fileInputStream=<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;d:\\aaa.txt&quot;</span>);</span><br><span class="line">        <span class="comment">//缓冲流需要一个底层流</span></span><br><span class="line">        <span class="comment">//缓冲流每次从缓冲区读取</span></span><br><span class="line">        BufferedInputStream bufferedInputStream=<span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(fileInputStream);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//读取</span></span><br><span class="line">        <span class="type">int</span> data; </span><br><span class="line">        <span class="keyword">while</span>((data=bufferedInputStream.read())!=-<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.print((<span class="type">char</span>)data); </span><br><span class="line">        &#125;	 </span><br><span class="line"></span><br><span class="line">        <span class="comment">//我们也可以自己创建一个缓冲区；</span></span><br><span class="line">        <span class="comment">//每次读取从自己创建的缓冲区中读取。</span></span><br><span class="line">        <span class="type">int</span> count;</span><br><span class="line">        <span class="type">byte</span>[] buf=<span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">while</span>((count=bufferedInputStream.read(b,<span class="number">0</span>,b.length))!=-<span class="number">1</span>) &#123;			</span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(buf,<span class="number">0</span>,count));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        bufferedInputStream.close();	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用字节缓冲流写入文件</span></span><br><span class="line"><span class="comment"> * BufferedOutputStream</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo5</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">		FileOutputStream fileOutputStream=<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;d:\\buf.txt&quot;</span>);</span><br><span class="line">		<span class="comment">//缓冲流将数据写入到缓冲区</span></span><br><span class="line">		BufferedOutputStream bufferedOutputStream=<span class="keyword">new</span> <span class="title class_">BufferedOutputStream</span>(fileOutputStream);</span><br><span class="line">		<span class="comment">//写入文件</span></span><br><span class="line">		bufferedOutputStream.write(<span class="string">&quot;helloworld&quot;</span>.getBytes());</span><br><span class="line">		bufferedOutputStream.flush();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//其实内部也会调用flush</span></span><br><span class="line">		bufferedOutputStream.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
@@ -105,14 +125,65 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
 <p><code>writeObject(Object obj)</code>  向流中写入一个对象。</p>
 <p><strong>使用流传输对象的过程称为序列化、反序列化。</strong></p>
 
+        <h2 id="序列化"   >
+          <a href="#序列化" class="heading-link"><i class="fas fa-link"></i></a><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 学生类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>();</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">		<span class="built_in">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Student [name=&quot;</span> + name + <span class="string">&quot;, age=&quot;</span> + age + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 学生类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>();</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">		<span class="built_in">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Student [name=&quot;</span> + name + <span class="string">&quot;, age=&quot;</span> + age + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用ObjectOutputStream实现对象的序列化</span></span><br><span class="line"><span class="comment"> * 注：序列化的类必要要实现Serializable接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo6</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">//这个文件后缀名表示二进制文件，但你可以写成其他如obj等任意后缀。</span></span><br><span class="line">		FileOutputStream fileOutputStream=<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;d:\\stu.bin&quot;</span>);</span><br><span class="line">		ObjectOutputStream objectOutputStream=<span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(fileOutputStream);</span><br><span class="line">		<span class="comment">//序列化（写入操作）</span></span><br><span class="line">		Student tang=<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;野兽先辈&quot;</span>, <span class="number">24</span>);</span><br><span class="line">		objectOutputStream.writeObject(tang);</span><br><span class="line">		objectOutputStream.close();</span><br><span class="line">		System.out.println(<span class="string">&quot;序列化完毕&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>注意：以上内容执行后会抛出异常，是因为我们没又让序列化的对象实现Serializable接口（这个接口没有任何内容，只是用来标记实例化的对象）</strong></p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不需要实现任何方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span>&#123; &#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="反序列化"   >
+          <a href="#反序列化" class="heading-link"><i class="fas fa-link"></i></a><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2>
+      <figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用ObjectInputStream实现反序列化（读取重构对象）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo7</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">		FileInputStream fileInputStream=<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;d:\\stu.bin&quot;</span>);</span><br><span class="line">		ObjectInputStream objectInputStream=<span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(fileInputStream);</span><br><span class="line">		<span class="comment">//读取文件（反序列化）</span></span><br><span class="line">		Student student=(Student) objectInputStream.readObject();</span><br><span class="line">		</span><br><span class="line">		objectInputStream.close();</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">&quot;执行完毕&quot;</span>);</span><br><span class="line">		System.out.println(student.toString());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="注意事项"   >
+          <a href="#注意事项" class="heading-link"><i class="fas fa-link"></i></a><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2>
+      <ul>
+<li><p>序列化的对象可以写序列化版本号ID（静态常量），保证序列化和反序列化的是同一类（serialVersionUID）</p>
+</li>
+<li><p>可以用transient修饰不被序列化的属性</p>
+</li>
+<li><p>静态属性是不可以被序列化的</p>
+</li>
+<li><p>可以序列化多个对象（建议借助集合来实现）</p>
+</li>
+</ul>
+
+        <h1 id="字符流"   >
+          <a href="#字符流" class="heading-link"><i class="fas fa-link"></i></a><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h1>
+      <ul>
+<li><p>IOS-8859-1</p>
+<p>收录除ASCII外，还包括西欧、希腊语、泰语、阿拉伯语、希伯来语对应的文字符号。采用1个字节来表示，最多只能表示256个字符。</p>
+</li>
+<li><p>UTF-8</p>
+<p>针对Unicode码表的可变长度字符编码。国际上使用的编码，也称为“万国码”，收录了几乎所有国家的常用字符。采用1至3个字节来表示一个字符。</p>
+</li>
+<li><p>GB2312</p>
+<p>简体中文，采用1个或2个字节来表示字符，95年之前所采用的编码。</p>
+</li>
+<li><p>GBK</p>
+<p>简体中文的扩充，GB2312的升级版本。</p>
+</li>
+<li><p>BIG5</p>
+<p>台湾，繁体中文。</p>
+</li>
+</ul>
+<p><strong>当编码方式和解码方式不一致时，会出现乱码。</strong></p>
+
         <h1 id="注意事件"   >
           <a href="#注意事件" class="heading-link"><i class="fas fa-link"></i></a><a href="#注意事件" class="headerlink" title="注意事件"></a>注意事件</h1>
-      <p>结束一个流后要用close()来关闭流来节省系统资源（若是用了缓冲流可以只关缓冲流）</p>
-<p>缓冲流close的时候会自动调用flush（刷新）</p>
+      <p>结束一个流后要用close()来关闭流来节省系统资源（若是用了缓冲流或对象流等可以只关缓冲流或者对象流）</p>
+<p>缓冲流或对象流等close的时候会自动调用flush（刷新）</p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/02/%E5%A7%86%E7%88%B7%E7%9A%84Lose-yourself%E7%9A%84%E7%8E%B0%E5%9C%BA%E7%89%88/">姆爷的Lose yourself的现场版</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>这个现场真的帅阿</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-pKvgqnaqZKRkFnyV" src="https://player.bilibili.com/player.html?bvid=BV1tw411f7LC&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-pKvgqnaqZKRkFnyV").style.height=document.getElementById("mmedia-pKvgqnaqZKRkFnyV").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-AzRkeUWNeWEKxzdV" src="https://player.bilibili.com/player.html?bvid=BV1tw411f7LC&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-AzRkeUWNeWEKxzdV").style.height=document.getElementById("mmedia-AzRkeUWNeWEKxzdV").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-pKvgqnaqZKRkFnyV").style.height=document.getElementById("mmedia-pKvgqnaqZKRkFnyV").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-AzRkeUWNeWEKxzdV").style.height=document.getElementById("mmedia-AzRkeUWNeWEKxzdV").scrollWidth*0.76+"px";
     }; </script>
 
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/%E5%A6%82%E4%BD%95%E7%94%A8%E8%84%9A%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E7%9A%84Mirai%E6%9C%BA%E5%99%A8%E4%BA%BA/">如何用脚搭建一个开源的Mirai机器人</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
