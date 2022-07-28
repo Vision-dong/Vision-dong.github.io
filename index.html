@@ -157,6 +157,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
 
         <h1 id="字符流"   >
           <a href="#字符流" class="heading-link"><i class="fas fa-link"></i></a><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h1>
+      
+        <h2 id="编码方式"   >
+          <a href="#编码方式" class="heading-link"><i class="fas fa-link"></i></a><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h2>
       <ul>
 <li><p>IOS-8859-1</p>
 <p>收录除ASCII外，还包括西欧、希腊语、泰语、阿拉伯语、希伯来语对应的文字符号。采用1个字节来表示，最多只能表示256个字符。</p>
@@ -175,15 +178,58 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
 </li>
 </ul>
 <p><strong>当编码方式和解码方式不一致时，会出现乱码。</strong></p>
+<p><img src="/posts_data/JAVA%E7%9A%84IO%E6%A1%86%E6%9E%B6/%E5%9B%BE%E7%89%874.png" alt="图片"></p>
+
+        <h2 id="字符流的父类（抽象类）"   >
+          <a href="#字符流的父类（抽象类）" class="heading-link"><i class="fas fa-link"></i></a><a href="#字符流的父类（抽象类）" class="headerlink" title="字符流的父类（抽象类）"></a>字符流的父类（抽象类）</h2>
+      <p><strong>Reader：</strong>字符输入流</p>
+<ul>
+<li><p><code>public int read()</code></p>
+<p>从流中读取单个字符，用整型来返回读取的字符；当读到流底部时返回-1。</p>
+</li>
+<li><p><code>public int read(char[] c)</code></p>
+<p>从流中读取字符保存到c数组中，返回读取的字符个数，当读到流底部时返回-1。</p>
+</li>
+<li><p><code>public int read(char[] cbuf,int off,int len)&#123;&#125;</code></p>
+<p>抽象方法。</p>
+</li>
+</ul>
+<p><strong>Writer：</strong>字符输出流</p>
+<ul>
+<li><p><code>public void write(int n)</code></p>
+<p>写入单个字符，只能写入包含16位低阶字节的整型数值，16位高阶字节将会被忽略。</p>
+</li>
+<li><p><code>public void write(String str)</code></p>
+<p>写入一个字符串。</p>
+</li>
+<li><p><code>public void write(char[] cbuf)</code></p>
+<p>写入一个字符数组。</p>
+</li>
+</ul>
+
+        <h2 id="字符流的子类"   >
+          <a href="#字符流的子类" class="heading-link"><i class="fas fa-link"></i></a><a href="#字符流的子类" class="headerlink" title="字符流的子类"></a><strong>字符流的子类</strong></h2>
+      <p><strong>FileReader：</strong></p>
+<ul>
+<li><p><code>public int read()</code></p>
+<p>继承自InputStreamReader类。读取单个字符，返回读取的字符，当读到流底部时返回-1。</p>
+</li>
+<li><p><code>public int read(char[] c)</code></p>
+<p>继承自Reader类。</p>
+</li>
+<li><p><code>public int read(char[] cbuf,int offset,int length)</code></p>
+<p>继承自InputStreamReader类。从流中读取部分字符到cbuf中指定位置，返回读取到的字符个数，当读到流底部时返回-1。</p>
+</li>
+</ul>
 
         <h1 id="注意事件"   >
           <a href="#注意事件" class="heading-link"><i class="fas fa-link"></i></a><a href="#注意事件" class="headerlink" title="注意事件"></a>注意事件</h1>
       <p>结束一个流后要用close()来关闭流来节省系统资源（若是用了缓冲流或对象流等可以只关缓冲流或者对象流）</p>
 <p>缓冲流或对象流等close的时候会自动调用flush（刷新）</p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/02/%E5%A7%86%E7%88%B7%E7%9A%84Lose-yourself%E7%9A%84%E7%8E%B0%E5%9C%BA%E7%89%88/">姆爷的Lose yourself的现场版</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>这个现场真的帅阿</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-AzRkeUWNeWEKxzdV" src="https://player.bilibili.com/player.html?bvid=BV1tw411f7LC&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-AzRkeUWNeWEKxzdV").style.height=document.getElementById("mmedia-AzRkeUWNeWEKxzdV").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-bUIOBHPErLBIdbJN" src="https://player.bilibili.com/player.html?bvid=BV1tw411f7LC&page=1&high_quality=1&danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-bUIOBHPErLBIdbJN").style.height=document.getElementById("mmedia-bUIOBHPErLBIdbJN").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-AzRkeUWNeWEKxzdV").style.height=document.getElementById("mmedia-AzRkeUWNeWEKxzdV").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-bUIOBHPErLBIdbJN").style.height=document.getElementById("mmedia-bUIOBHPErLBIdbJN").scrollWidth*0.76+"px";
     }; </script>
 
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/%E5%A6%82%E4%BD%95%E7%94%A8%E8%84%9A%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E7%9A%84Mirai%E6%9C%BA%E5%99%A8%E4%BA%BA/">如何用脚搭建一个开源的Mirai机器人</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
@@ -202,26 +248,24 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.1.0"></he
         <h1 id="获取插件"   >
           <a href="#获取插件" class="heading-link"><i class="fas fa-link"></i></a><a href="#获取插件" class="headerlink" title="获取插件"></a>获取插件</h1>
       <p>当我们用脚搭建好Mirai的运行环境后，就是获取插件了，下面是网址<br><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://mirai.mamoe.net/" >Mirai社区</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>如果你不会开发的话，直接用现成的即可，插件的教程你们可以看插件开发者的叙述。</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/">丛雨の使用帮助</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
-        <h1 id="有关丛雨的骰娘功能"   >
-          <a href="#有关丛雨的骰娘功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#有关丛雨的骰娘功能" class="headerlink" title="有关丛雨的骰娘功能"></a>有关丛雨的骰娘功能</h1>
-      <p>常用指令列表:<br>.st 属性设置<br>.ra|.rc 属性检测<br>.rb 奖励骰|.rp惩罚骰<br>.cr coc7规则书查询<br>.dr dnd5e信息查询<br>.ti 随机获取发疯情况<br>.li 发疯后总结<br>.sc 理智检测<br>.rh 暗骰<br>.set 设置默认骰<br>.coc 随机coc7角色属性<br>.dnd 随机dnd5e角色属性<br>.r 随机数生成<br>.rd 默认骰数值生成<br>.ww 骰池功能<br>.kkp 随机图片速览(测试)<br>.atk 先攻指令系列，详情请看文档<br>.botoff | .boton 启用骰子开关<br>更多的指令详情请查看:<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://keith404.gitee.io/mirai-rulateday-dice/#/instruction" >https://keith404.gitee.io/mirai-rulateday-dice/#/instruction</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/">丛雨の使用帮助</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-07-29</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="涩图功能"   >
+          <a href="#涩图功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#涩图功能" class="headerlink" title="涩图功能"></a>涩图功能</h1>
+      <p>常用指令列表:<br>指令头：gkd<br>gkd 风景图<br>gkd lol<br>gkd 真人<br>gkd setu<br>规格：1~4（越大图片质量越好） 内容偏好：r18<br>例如我要一张规格4的r18涩图<br>那就是 gkd setu 4 r18</p>
 
         <h1 id="散装功能"   >
           <a href="#散装功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#散装功能" class="headerlink" title="散装功能"></a>散装功能</h1>
-      <p><img src="/posts_data/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/%E5%B8%AE%E5%8A%A91.png" alt="图片"><br><img src="/posts_data/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/%E5%B8%AE%E5%8A%A92.png" alt="图片"><br><img src="/posts_data/%E4%B8%9B%E9%9B%A8%E3%81%AE%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/%E5%B8%AE%E5%8A%A93.png" alt="图片"><br>生成5k 第一行内容<br>第二行内容</p>
+      <p>生成5k 第一行内容<br>第二行内容</p>
+<p>抽老婆（随机抽取一名老婆） 换老婆（抽了之后可以换）</p>
+<p><em>罕见会收集群友发送的消息，来生成提问和答案，所以言论会比较逆天。</em></p>
 
         <h1 id="折磨群友的功能"   >
           <a href="#折磨群友的功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#折磨群友的功能" class="headerlink" title="折磨群友的功能"></a>折磨群友的功能</h1>
-      <p>管理员发送：<em>请丛雨大人降下天罚吧！</em>  将会随机抽取一名倒霉蛋禁言<br>allinall <em>假消息</em> 生成假消息<br>发送 <em>赌</em> 玩俄罗斯轮盘<br>或者可以 <em>戳一戳</em> 丛雨<br>或者跟丛雨 <em><strong>对骂</strong></em></p>
+      <p>管理员发送：<em>献祭个沙口！</em>  将会随机抽取一名倒霉蛋禁言<br>allinall <em>假消息</em> 生成假消息<br>发送 <em>赌</em> 玩俄罗斯轮盘<br>或者可以 <em>戳一戳</em> 罕见<br>或者可以艾特一名群友来击剑（输了的会喜提禁言套餐）</p>
 
         <h1 id="动图功能"   >
           <a href="#动图功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#动图功能" class="headerlink" title="动图功能"></a>动图功能</h1>
       <p>摸+@<br>踢+@<br>贴+@<br>锤+@<br>抱+@<br>艹+@</p>
-
-        <h1 id="乱七八糟的系统"   >
-          <a href="#乱七八糟的系统" class="heading-link"><i class="fas fa-link"></i></a><a href="#乱七八糟的系统" class="headerlink" title="乱七八糟的系统"></a>乱七八糟的系统</h1>
-      <p>目前已实现的功能列表：<br>|赌博|打劫|猜数字|签到|注册|转账|查询|点歌|<br>发送#功能 帮助，查询对应功能帮助</p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/05/01/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-07</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
 
         <h2 id="Quick-Start"   >
